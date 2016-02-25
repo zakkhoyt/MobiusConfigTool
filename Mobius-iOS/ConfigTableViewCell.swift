@@ -10,6 +10,12 @@ import UIKit
 
 class ConfigTableViewCell: UITableViewCell {
 
+    var configItem: ConfigItem? = nil {
+        didSet{
+            textLabel?.text = configItem?.title
+            detailTextLabel!.text = configItem?.currentParam()
+        }
+    }
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

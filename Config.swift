@@ -10,12 +10,7 @@ import UIKit
 
 class Config: NSObject {
 
-    var videoMode1: VideoConfig? = nil
-    var videoMode2: VideoConfig? = nil
-    
-    
-    override init() {
-        videoMode1 = VideoConfig()
-        videoMode2 = VideoConfig()
-    }
+    var video1 = VideoConfig()
+    var video2 = VideoConfig()
+    var photo = PhotoConfig()
 }

@@ -12,14 +12,14 @@
 		C69B29331C7EC4AF00681452 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C69B29311C7EC4AF00681452 /* Main.storyboard */; };
 		C69B29351C7EC4AF00681452 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C69B29341C7EC4AF00681452 /* Assets.xcassets */; };
 		C69B29381C7EC4AF00681452 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C69B29361C7EC4AF00681452 /* LaunchScreen.storyboard */; };
-		C69B293E1C7EC4CD00681452 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69B293D1C7EC4CD00681452 /* Config.swift */; };
-		C69B293F1C7EC4CD00681452 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69B293D1C7EC4CD00681452 /* Config.swift */; };
-		C69B29411C7EC4F700681452 /* VideoConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69B29401C7EC4F700681452 /* VideoConfig.swift */; };
-		C69B29421C7EC4F700681452 /* VideoConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69B29401C7EC4F700681452 /* VideoConfig.swift */; };
 		C69B29431C7EC56100681452 /* ConfigTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6B1F92E1C783989005CCCBB /* ConfigTypes.swift */; };
 		C6A807F61C7ECB6E00AC45D2 /* ConfigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A807F51C7ECB6E00AC45D2 /* ConfigViewController.swift */; };
 		C6A807F81C7ECBAC00AC45D2 /* ConfigTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A807F71C7ECBAC00AC45D2 /* ConfigTableViewCell.swift */; };
 		C6A807FA1C7ED1EB00AC45D2 /* ConfigItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A807F91C7ED1EB00AC45D2 /* ConfigItem.swift */; };
+		C6A807FC1C7ED70400AC45D2 /* VideoConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A807FB1C7ED70400AC45D2 /* VideoConfig.swift */; };
+		C6A807FE1C7ED78A00AC45D2 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A807FD1C7ED78A00AC45D2 /* Config.swift */; };
+		C6A808001C7ED8B100AC45D2 /* ConfigParamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A807FF1C7ED8B100AC45D2 /* ConfigParamViewController.swift */; };
+		C6A808021C7EE05A00AC45D2 /* PhotoConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A808011C7EE05A00AC45D2 /* PhotoConfig.swift */; };
 		C6B1F91E1C78395E005CCCBB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6B1F91D1C78395E005CCCBB /* AppDelegate.swift */; };
 		C6B1F9201C78395E005CCCBB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6B1F91F1C78395E005CCCBB /* ViewController.swift */; };
 		C6B1F9221C78395E005CCCBB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6B1F9211C78395E005CCCBB /* Assets.xcassets */; };
@@ -37,11 +37,13 @@
 		C69B29341C7EC4AF00681452 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C69B29371C7EC4AF00681452 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C69B29391C7EC4AF00681452 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C69B293D1C7EC4CD00681452 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
-		C69B29401C7EC4F700681452 /* VideoConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoConfig.swift; sourceTree = "<group>"; };
 		C6A807F51C7ECB6E00AC45D2 /* ConfigViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigViewController.swift; sourceTree = "<group>"; };
 		C6A807F71C7ECBAC00AC45D2 /* ConfigTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigTableViewCell.swift; sourceTree = "<group>"; };
 		C6A807F91C7ED1EB00AC45D2 /* ConfigItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigItem.swift; sourceTree = "<group>"; };
+		C6A807FB1C7ED70400AC45D2 /* VideoConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoConfig.swift; sourceTree = "<group>"; };
+		C6A807FD1C7ED78A00AC45D2 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		C6A807FF1C7ED8B100AC45D2 /* ConfigParamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigParamViewController.swift; sourceTree = "<group>"; };
+		C6A808011C7EE05A00AC45D2 /* PhotoConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoConfig.swift; sourceTree = "<group>"; };
 		C6B1F91A1C78395E005CCCBB /* Mobius.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mobius.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6B1F91D1C78395E005CCCBB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C6B1F91F1C78395E005CCCBB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -76,9 +78,10 @@
 			children = (
 				C6B1F92E1C783989005CCCBB /* ConfigTypes.swift */,
 				C6459FE51C7EAFBD00763316 /* SYSCFG.TXT */,
-				C69B293D1C7EC4CD00681452 /* Config.swift */,
-				C69B29401C7EC4F700681452 /* VideoConfig.swift */,
 				C6A807F91C7ED1EB00AC45D2 /* ConfigItem.swift */,
+				C6A807FB1C7ED70400AC45D2 /* VideoConfig.swift */,
+				C6A807FD1C7ED78A00AC45D2 /* Config.swift */,
+				C6A808011C7EE05A00AC45D2 /* PhotoConfig.swift */,
 			);
 			name = Shared;
 			sourceTree = "<group>";
@@ -93,6 +96,7 @@
 				C69B29391C7EC4AF00681452 /* Info.plist */,
 				C6A807F51C7ECB6E00AC45D2 /* ConfigViewController.swift */,
 				C6A807F71C7ECBAC00AC45D2 /* ConfigTableViewCell.swift */,
+				C6A807FF1C7ED8B100AC45D2 /* ConfigParamViewController.swift */,
 			);
 			path = "Mobius-iOS";
 			sourceTree = "<group>";
@@ -234,13 +238,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C69B29421C7EC4F700681452 /* VideoConfig.swift in Sources */,
+				C6A808001C7ED8B100AC45D2 /* ConfigParamViewController.swift in Sources */,
 				C69B292E1C7EC4AF00681452 /* AppDelegate.swift in Sources */,
 				C69B29431C7EC56100681452 /* ConfigTypes.swift in Sources */,
 				C6A807F81C7ECBAC00AC45D2 /* ConfigTableViewCell.swift in Sources */,
+				C6A807FE1C7ED78A00AC45D2 /* Config.swift in Sources */,
+				C6A807FC1C7ED70400AC45D2 /* VideoConfig.swift in Sources */,
 				C6A807F61C7ECB6E00AC45D2 /* ConfigViewController.swift in Sources */,
 				C6A807FA1C7ED1EB00AC45D2 /* ConfigItem.swift in Sources */,
-				C69B293F1C7EC4CD00681452 /* Config.swift in Sources */,
+				C6A808021C7EE05A00AC45D2 /* PhotoConfig.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,8 +256,6 @@
 			files = (
 				C6B1F92D1C78397A005CCCBB /* FileManager.swift in Sources */,
 				C6B1F92F1C783989005CCCBB /* ConfigTypes.swift in Sources */,
-				C69B293E1C7EC4CD00681452 /* Config.swift in Sources */,
-				C69B29411C7EC4F700681452 /* VideoConfig.swift in Sources */,
 				C6B1F9201C78395E005CCCBB /* ViewController.swift in Sources */,
 				C6B1F91E1C78395E005CCCBB /* AppDelegate.swift in Sources */,
 			);
