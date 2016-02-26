@@ -7,13 +7,21 @@
 //
 
 import UIKit
+import MessageUI
 
 let SegueConfigParam = "SegueConfigParam"
+
+enum ConfigViewControllerSection: Int {
+    case General = 0
+    case Video1 = 1
+    case Video2 = 2
+    case Photo = 3
+    case System = 4
+}
 
 class ConfigViewController: UIViewController {
     
     var config = Config()
-    
     
     var configurableItem: ConfigItem? = nil
     
@@ -36,7 +44,8 @@ class ConfigViewController: UIViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == SegueConfigParam {
-            let vc = segue.destinationViewController as? ConfigParamViewController
+            let nc = segue.destinationViewController as? UINavigationController
+            let vc = nc!.viewControllers.first as? ConfigParamViewController
             vc?.configItem = sender as? ConfigItem
             vc?.completionHandler = { arg in
                 self.tableView.reloadData() 
@@ -55,22 +64,42 @@ class ConfigViewController: UIViewController {
     }
     */
     
+    @IBAction func exportBarButtonAction(sender: AnyObject) {
+        if let fileURL = config.exportToFile() {
+            if MFMailComposeViewController.canSendMail() {
+                let composer = MFMailComposeViewController()
+                composer.navigationBar.tintColor = UIColor.yellowColor()
+                composer.navigationController?.title = "Mail"
+                composer.mailComposeDelegate = self
+                composer.setSubject("Config file for your Mobius camera")
+                if let data = NSData(contentsOfURL: fileURL) {
+                    composer.addAttachmentData(data, mimeType: "text/plain", fileName: fileURL.lastPathComponent!)
+                    
+                    presentViewController(composer, animated: true, completion: nil)
+                }
+            }
+        }
+    }
 }
 
 
 extension ConfigViewController: UITableViewDataSource {
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 3
+        return 5
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
-        case 0:
-            return 11
-        case 1:
-            return 11
-        case 2:
-            return 6
+        case ConfigViewControllerSection.General.rawValue:
+            return config.general.items.count
+        case ConfigViewControllerSection.Video1.rawValue:
+            return config.video1.items.count
+        case ConfigViewControllerSection.Video2.rawValue:
+            return config.video2.items.count
+        case ConfigViewControllerSection.Photo.rawValue:
+            return config.photo.items.count
+        case ConfigViewControllerSection.System.rawValue:
+            return config.system.items.count
         default:
             return 0
         }
@@ -80,80 +109,21 @@ extension ConfigViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("ConfigTableViewCell") as? ConfigTableViewCell
         switch indexPath.section    {
-        case 0:
-            
-            switch indexPath.row {
-            case 0:
-                cell?.configItem = config.video1.resolution
-            case 1:
-                cell?.configItem = config.video1.frameRate
-            case 2:
-                cell?.configItem = config.video1.timeLapse
-            case 3:
-                cell?.configItem = config.video1.sound
-            case 4:
-                cell?.configItem = config.video1.cycleTime
-            case 5:
-                cell?.configItem = config.video1.loopRecording
-            case 6:
-                cell?.configItem = config.video1.flip
-            case 7:
-                cell?.configItem = config.video1.timeStamp
-            case 8:
-                cell?.configItem = config.video1.quality
-            case 9:
-                cell?.configItem = config.video1.HDR
-            case 10:
-                cell?.configItem = config.video1.fileFormat
-            default:
-                cell?.textLabel!.text = "error"
-                
-            }
-        case 1:
-            switch indexPath.row {
-            case 0:
-                cell?.configItem = config.video2.resolution
-            case 1:
-                cell?.configItem = config.video2.frameRate
-            case 2:
-                cell?.configItem = config.video2.timeLapse
-            case 3:
-                cell?.configItem = config.video2.sound
-            case 4:
-                cell?.configItem = config.video2.cycleTime
-            case 5:
-                cell?.configItem = config.video2.loopRecording
-            case 6:
-                cell?.configItem = config.video2.flip
-            case 7:
-                cell?.configItem = config.video2.timeStamp
-            case 8:
-                cell?.configItem = config.video2.quality
-            case 9:
-                cell?.configItem = config.video2.HDR
-            case 10:
-                cell?.configItem = config.video2.fileFormat
-            default:
-                cell?.textLabel!.text = "error"
-                
-            }
-        case 2:
-            switch indexPath.row {
-            case 0:
-                cell?.configItem = config.photo.captureSize
-            case 1:
-                cell?.configItem = config.photo.timeLapse
-            case 2:
-                cell?.configItem = config.photo.flip
-            case 3:
-                cell?.configItem = config.photo.timeStamp
-            case 4:
-                cell?.configItem = config.photo.powerOn
-            case 5:
-                cell?.configItem = config.photo.powerOff
-            default:
-                cell?.textLabel!.text = "error"
-            }
+        case ConfigViewControllerSection.General.rawValue:
+            let configItem = config.general.items[indexPath.item]
+            cell?.configItem = configItem
+        case ConfigViewControllerSection.Video1.rawValue:
+            let configItem = config.video1.items[indexPath.item]
+            cell?.configItem = configItem
+        case ConfigViewControllerSection.Video2.rawValue:
+            let configItem = config.video2.items[indexPath.item]
+            cell?.configItem = configItem
+        case ConfigViewControllerSection.Photo.rawValue:
+            let configItem = config.photo.items[indexPath.item]
+            cell?.configItem = configItem
+        case ConfigViewControllerSection.System.rawValue:
+            let configItem = config.system.items[indexPath.item]
+            cell?.configItem = configItem
             
         default:
             cell?.textLabel!.text = "error"
@@ -164,6 +134,14 @@ extension ConfigViewController: UITableViewDataSource {
 
 extension ConfigViewController: UITableViewDelegate {
     
+    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let frame = CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: 30)
+        let view = UITableViewHeaderFooterView(frame: frame)
+        view.tintColor = UIColor.yellowColor()
+//        view.textLabel?.textColor = UIColor.yellowColor()
+//        view.backgroundView?.backgroundColor = UIColor.darkGrayColor()  
+        return view
+    }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let cell = tableView .cellForRowAtIndexPath(indexPath) as? ConfigTableViewCell
@@ -173,17 +151,29 @@ extension ConfigViewController: UITableViewDelegate {
     
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section {
-        case 0:
+        case ConfigViewControllerSection.General.rawValue:
+            return "General"
+        case ConfigViewControllerSection.Video1.rawValue:
             return "Video Mode 1"
-        case 1:
+        case ConfigViewControllerSection.Video2.rawValue:
             return "Video Mode 2"
-        case 2:
+        case ConfigViewControllerSection.Photo.rawValue:
             return "Photo Mode"
+        case ConfigViewControllerSection.System.rawValue:
+            return "System"
         default:
             return nil
         }
     }
 }
 
+
+extension ConfigViewController: MFMailComposeViewControllerDelegate {
+    func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
+        print("Mail composer result: \(result.rawValue)")
+        
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+}
 
 

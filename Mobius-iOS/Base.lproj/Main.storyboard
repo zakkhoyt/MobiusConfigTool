@@ -63,13 +63,16 @@
                     </view>
                     <navigationItem key="navigationItem" title="Mobius Config" id="SKt-pi-x7o">
                         <barButtonItem key="leftBarButtonItem" title="Reset" id="DVb-go-Syc"/>
-                        <barButtonItem key="rightBarButtonItem" title="Export" id="IlR-gh-gEr"/>
+                        <barButtonItem key="rightBarButtonItem" title="Export" id="IlR-gh-gEr">
+                            <connections>
+                                <action selector="exportBarButtonAction:" destination="yjW-pN-avh" id="yIZ-UP-A2w"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="paramView" destination="ptQ-db-Sk1" id="HQB-Gp-sIC"/>
                         <outlet property="pickerView" destination="hyM-5F-ics" id="n9W-yM-HYB"/>
                         <outlet property="tableView" destination="WXy-zI-14L" id="JlI-BX-4Dw"/>
-                        <segue destination="NHO-ka-p7b" kind="presentation" identifier="SegueConfigParam" modalTransitionStyle="crossDissolve" id="Uiw-Ls-ibR"/>
+                        <segue destination="Omk-wf-21o" kind="presentation" identifier="SegueConfigParam" id="Uiw-Ls-ibR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cPf-xZ-djz" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -79,7 +82,7 @@
         <!--Config Param View Controller-->
         <scene sceneID="Tfo-m2-aoW">
             <objects>
-                <viewController modalPresentationStyle="overCurrentContext" id="NHO-ka-p7b" customClass="ConfigParamViewController" customModule="Mobius_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="NHO-ka-p7b" customClass="ConfigParamViewController" customModule="Mobius_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="dNo-hS-AjM"/>
                         <viewControllerLayoutGuide type="bottom" id="20y-wt-2M1"/>
@@ -88,82 +91,57 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6T3-Y5-zrp">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="jcW-gV-yyR">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                </view>
-                                <blurEffect style="light"/>
-                            </visualEffectView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ptQ-db-Sk1" userLabel="ParamView">
-                                <rect key="frame" x="0.0" y="170" width="600" height="260"/>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hyM-5F-ics">
+                                <rect key="frame" x="0.0" y="192" width="600" height="216"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="NHO-ka-p7b" id="yGB-02-BwH"/>
+                                    <outlet property="delegate" destination="NHO-ka-p7b" id="EaL-4t-lpi"/>
+                                </connections>
+                            </pickerView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="53l-RQ-tPX">
+                                <rect key="frame" x="20" y="72" width="560" height="112"/>
                                 <subviews>
-                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hyM-5F-ics">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="216"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="216" id="dgC-Ci-qsT"/>
-                                            <constraint firstAttribute="height" constant="216" id="rBA-cq-mre"/>
-                                        </constraints>
-                                        <connections>
-                                            <outlet property="dataSource" destination="NHO-ka-p7b" id="yGB-02-BwH"/>
-                                            <outlet property="delegate" destination="NHO-ka-p7b" id="EaL-4t-lpi"/>
-                                        </connections>
-                                    </pickerView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gQF-ys-3UR">
-                                        <rect key="frame" x="0.0" y="216" width="296" height="44"/>
-                                        <state key="normal" title="Cancel"/>
-                                        <connections>
-                                            <action selector="cancelButtonAction:" destination="NHO-ka-p7b" eventType="touchUpInside" id="TqA-a1-P0O"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cFo-0z-LZH">
-                                        <rect key="frame" x="304" y="216" width="296" height="44"/>
-                                        <state key="normal" title="Done"/>
-                                        <connections>
-                                            <action selector="doneButtonAction:" destination="NHO-ka-p7b" eventType="touchUpInside" id="PVQ-JC-9rg"/>
-                                        </connections>
-                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7lM-9Z-3nY">
+                                        <rect key="frame" x="0.0" y="41" width="560" height="29"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="hyM-5F-ics" firstAttribute="leading" secondItem="ptQ-db-Sk1" secondAttribute="leading" id="0rD-5A-TyJ"/>
-                                    <constraint firstAttribute="height" constant="260" id="0s5-sN-OQ4"/>
-                                    <constraint firstAttribute="trailing" secondItem="hyM-5F-ics" secondAttribute="trailing" id="3By-Hi-Sxx"/>
-                                    <constraint firstItem="hyM-5F-ics" firstAttribute="top" secondItem="ptQ-db-Sk1" secondAttribute="top" id="3d2-2z-dYh"/>
-                                    <constraint firstAttribute="trailing" secondItem="cFo-0z-LZH" secondAttribute="trailing" id="3sU-Jm-bF5"/>
-                                    <constraint firstItem="gQF-ys-3UR" firstAttribute="top" secondItem="hyM-5F-ics" secondAttribute="bottom" id="8hy-Ov-8Ih"/>
-                                    <constraint firstItem="cFo-0z-LZH" firstAttribute="leading" secondItem="gQF-ys-3UR" secondAttribute="trailing" constant="8" id="9kL-ch-G84"/>
-                                    <constraint firstItem="cFo-0z-LZH" firstAttribute="top" secondItem="hyM-5F-ics" secondAttribute="bottom" id="HC5-U7-jEg"/>
-                                    <constraint firstAttribute="bottom" secondItem="gQF-ys-3UR" secondAttribute="bottom" id="K6Q-VF-dNK"/>
-                                    <constraint firstItem="cFo-0z-LZH" firstAttribute="width" secondItem="gQF-ys-3UR" secondAttribute="width" id="KKX-df-J4D"/>
-                                    <constraint firstAttribute="bottom" secondItem="cFo-0z-LZH" secondAttribute="bottom" id="Q5J-O2-ix6"/>
-                                    <constraint firstItem="gQF-ys-3UR" firstAttribute="leading" secondItem="ptQ-db-Sk1" secondAttribute="leading" id="VRY-gB-wNZ"/>
-                                    <constraint firstItem="gQF-ys-3UR" firstAttribute="top" secondItem="hyM-5F-ics" secondAttribute="bottom" id="bg9-E9-DXi"/>
-                                    <constraint firstItem="cFo-0z-LZH" firstAttribute="width" secondItem="gQF-ys-3UR" secondAttribute="width" id="bus-0C-jwi"/>
-                                    <constraint firstItem="cFo-0z-LZH" firstAttribute="leading" secondItem="gQF-ys-3UR" secondAttribute="trailing" constant="8" id="d0d-tB-Dne"/>
-                                    <constraint firstItem="cFo-0z-LZH" firstAttribute="top" secondItem="hyM-5F-ics" secondAttribute="bottom" id="rdj-x8-3oa"/>
+                                    <constraint firstAttribute="trailing" secondItem="7lM-9Z-3nY" secondAttribute="trailing" id="aGj-CF-ru9"/>
+                                    <constraint firstItem="7lM-9Z-3nY" firstAttribute="centerY" secondItem="53l-RQ-tPX" secondAttribute="centerY" id="kd1-Dv-0bl"/>
+                                    <constraint firstItem="7lM-9Z-3nY" firstAttribute="leading" secondItem="53l-RQ-tPX" secondAttribute="leading" id="vke-pW-n2B"/>
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="20y-wt-2M1" firstAttribute="top" secondItem="6T3-Y5-zrp" secondAttribute="bottom" id="2IN-fA-0BD"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="6T3-Y5-zrp" secondAttribute="trailing" constant="-20" id="2n4-IA-hfC"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="ptQ-db-Sk1" secondAttribute="trailing" constant="-20" id="ADU-Yg-UYy"/>
-                            <constraint firstItem="6T3-Y5-zrp" firstAttribute="leading" secondItem="3TH-cn-xWQ" secondAttribute="leadingMargin" constant="-20" id="HDb-5L-j1n"/>
-                            <constraint firstItem="6T3-Y5-zrp" firstAttribute="top" secondItem="3TH-cn-xWQ" secondAttribute="topMargin" id="OIG-cM-5rh"/>
-                            <constraint firstItem="ptQ-db-Sk1" firstAttribute="centerY" secondItem="3TH-cn-xWQ" secondAttribute="centerY" id="aCs-YE-FDR"/>
-                            <constraint firstItem="ptQ-db-Sk1" firstAttribute="leading" secondItem="3TH-cn-xWQ" secondAttribute="leadingMargin" constant="-20" id="jED-dj-Ccf"/>
+                            <constraint firstItem="hyM-5F-ics" firstAttribute="leading" secondItem="3TH-cn-xWQ" secondAttribute="leadingMargin" constant="-20" id="4F3-JX-uXH"/>
+                            <constraint firstItem="hyM-5F-ics" firstAttribute="centerY" secondItem="3TH-cn-xWQ" secondAttribute="centerY" id="BP1-lz-UPS"/>
+                            <constraint firstItem="hyM-5F-ics" firstAttribute="top" secondItem="53l-RQ-tPX" secondAttribute="bottom" constant="8" id="Ox4-Gf-hd1"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="hyM-5F-ics" secondAttribute="trailing" constant="-20" id="foR-aC-bwu"/>
+                            <constraint firstItem="53l-RQ-tPX" firstAttribute="trailing" secondItem="3TH-cn-xWQ" secondAttribute="trailingMargin" id="gCW-B6-81t"/>
+                            <constraint firstItem="53l-RQ-tPX" firstAttribute="leading" secondItem="3TH-cn-xWQ" secondAttribute="leadingMargin" id="hXO-HI-ltp"/>
+                            <constraint firstItem="53l-RQ-tPX" firstAttribute="top" secondItem="dNo-hS-AjM" secondAttribute="bottom" constant="8" id="tq0-yr-uCE"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="e9Z-gw-yF2">
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="Oek-oy-az3">
+                            <connections>
+                                <action selector="doneButtonAction:" destination="NHO-ka-p7b" id="pgr-Op-JeQ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="pickerView" destination="hyM-5F-ics" id="Ezp-uY-Ith"/>
+                        <outlet property="titleLabel" destination="7lM-9Z-3nY" id="ern-pg-oHU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tdD-RG-ZA2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1028" y="-43"/>
+            <point key="canvasLocation" x="2006" y="-43"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="c2I-F8-EgW">
@@ -182,6 +160,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DIR-zM-vjd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-510" y="-43"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="E81-z4-ZfK">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Omk-wf-21o" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="MK5-Lk-RVE">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="NHO-ka-p7b" kind="relationship" relationship="rootViewController" id="KTu-8j-OPN"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oba-xP-Uax" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1194" y="-43"/>
         </scene>
     </scenes>
 </document>

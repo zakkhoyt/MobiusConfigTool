@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C6459FEA1C7EC3F800763316"
+               BlueprintIdentifier = "C69B292A1C7EC4AF00681452"
                BuildableName = "Mobius-iOS.app"
                BlueprintName = "Mobius-iOS"
                ReferencedContainer = "container:Mobius.xcodeproj">
@@ -32,7 +32,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C6459FEA1C7EC3F800763316"
+            BlueprintIdentifier = "C69B292A1C7EC4AF00681452"
             BuildableName = "Mobius-iOS.app"
             BlueprintName = "Mobius-iOS"
             ReferencedContainer = "container:Mobius.xcodeproj">
@@ -55,7 +55,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C6459FEA1C7EC3F800763316"
+            BlueprintIdentifier = "C69B292A1C7EC4AF00681452"
             BuildableName = "Mobius-iOS.app"
             BlueprintName = "Mobius-iOS"
             ReferencedContainer = "container:Mobius.xcodeproj">
@@ -74,7 +74,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C6459FEA1C7EC3F800763316"
+            BlueprintIdentifier = "C69B292A1C7EC4AF00681452"
             BuildableName = "Mobius-iOS.app"
             BlueprintName = "Mobius-iOS"
             ReferencedContainer = "container:Mobius.xcodeproj">

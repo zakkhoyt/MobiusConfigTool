@@ -18,7 +18,8 @@ class ConfigTableViewCell: UITableViewCell {
     }
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        self.textLabel?.textColor = UIColor.whiteColor()
+        self.detailTextLabel?.textColor = UIColor.lightGrayColor()
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

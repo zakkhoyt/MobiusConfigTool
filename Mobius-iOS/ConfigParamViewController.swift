@@ -12,9 +12,9 @@ class ConfigParamViewController: UIViewController {
 
     @IBOutlet weak var pickerView: UIPickerView!
     
+    @IBOutlet weak var titleLabel: UILabel!
     var configItem: ConfigItem? = nil {
         didSet{
-            
         }
     }
     
@@ -23,17 +23,14 @@ class ConfigParamViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let title = configItem?.title
+        self.titleLabel.text = title
     }
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         pickerView.selectRow((configItem?.selectedIndex)!, inComponent: 0, animated: false)
 
-    }
-    @IBAction func cancelButtonAction(sender: AnyObject) {
-        if completionHandler != nil {
-            completionHandler()
-        }
     }
     
     @IBAction func doneButtonAction(sender: AnyObject) {
@@ -66,5 +63,6 @@ extension ConfigParamViewController: UIPickerViewDelegate {
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         configItem?.selectedIndex = row
+
     }
 }

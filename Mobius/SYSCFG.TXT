@@ -1,3 +1,4 @@
+
 Date format=[0];set date format,0:YYYY/MM/DD, 1:DD/MM/YYYY, 2:MM/DD/YYYY
 Date time=[2013/07/16-10:06:33];date time setting,yyyy/mm/dd-hh:mm:ss,dd/mm/yyyy-hh:mm:ss,or mm/dd/yyyy-hh:mm:ss
 

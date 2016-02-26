@@ -13,12 +13,21 @@ class ConfigItem: NSObject {
     var params: [String] = []
     var selectedIndex: Int = 0
     var title: String
+    var comment: String? = nil
     
     init(title: String, params: [String], index: Int) {
         self.title = title
         self.params = params
         self.selectedIndex = index
     }
+    
+    init(title: String, comment: String, params: [String], index: Int) {
+        self.title = title
+        self.comment = comment
+        self.params = params
+        self.selectedIndex = index
+    }
+
     
     func numParams() -> Int {
         return params.count
