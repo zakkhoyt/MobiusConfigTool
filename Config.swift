@@ -57,4 +57,8 @@ class Config: NSObject {
         }
         return nil
     }
+    
+    func importFromFile(url: NSURL) {
+        
+    }
 }

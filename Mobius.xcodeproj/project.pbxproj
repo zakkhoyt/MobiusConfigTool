@@ -12,8 +12,6 @@
 		C69B29331C7EC4AF00681452 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C69B29311C7EC4AF00681452 /* Main.storyboard */; };
 		C69B29351C7EC4AF00681452 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C69B29341C7EC4AF00681452 /* Assets.xcassets */; };
 		C69B29381C7EC4AF00681452 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C69B29361C7EC4AF00681452 /* LaunchScreen.storyboard */; };
-		C69B29431C7EC56100681452 /* ConfigTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6B1F92E1C783989005CCCBB /* ConfigTypes.swift */; };
-		C69F99161C80EBAD0093DEE0 /* ConfigTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6B1F92E1C783989005CCCBB /* ConfigTypes.swift */; };
 		C69F99171C80EBAD0093DEE0 /* ConfigItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A807F91C7ED1EB00AC45D2 /* ConfigItem.swift */; };
 		C69F99181C80EBAD0093DEE0 /* ConfigSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A8084A1C7FC66700AC45D2 /* ConfigSection.swift */; };
 		C69F99191C80EBAD0093DEE0 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A807FD1C7ED78A00AC45D2 /* Config.swift */; };
@@ -38,7 +36,6 @@
 		C6B1F91E1C78395E005CCCBB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6B1F91D1C78395E005CCCBB /* AppDelegate.swift */; };
 		C6B1F9221C78395E005CCCBB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6B1F9211C78395E005CCCBB /* Assets.xcassets */; };
 		C6B1F9251C78395E005CCCBB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6B1F9231C78395E005CCCBB /* Main.storyboard */; };
-		C6B1F92D1C78397A005CCCBB /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6B1F92C1C78397A005CCCBB /* FileManager.swift */; };
 		C6B1F9311C783995005CCCBB /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = C6B1F9301C783995005CCCBB /* README.txt */; };
 /* End PBXBuildFile section */
 
@@ -68,8 +65,6 @@
 		C6B1F9211C78395E005CCCBB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C6B1F9241C78395E005CCCBB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C6B1F9261C78395E005CCCBB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C6B1F92C1C78397A005CCCBB /* FileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
-		C6B1F92E1C783989005CCCBB /* ConfigTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConfigTypes.swift; path = Mobius/ConfigTypes.swift; sourceTree = "<group>"; };
 		C6B1F9301C783995005CCCBB /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -94,8 +89,7 @@
 		C645A0021C7EC40700763316 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				C6B1F92E1C783989005CCCBB /* ConfigTypes.swift */,
-				C6459FE51C7EAFBD00763316 /* SYSCFG.TXT */,
+				C6A2A9A21C82C3DD00A4F495 /* Documents */,
 				C6A807F91C7ED1EB00AC45D2 /* ConfigItem.swift */,
 				C6A8084A1C7FC66700AC45D2 /* ConfigSection.swift */,
 				C6A807FD1C7ED78A00AC45D2 /* Config.swift */,
@@ -132,6 +126,14 @@
 			name = ViewControllers;
 			sourceTree = "<group>";
 		};
+		C6A2A9A21C82C3DD00A4F495 /* Documents */ = {
+			isa = PBXGroup;
+			children = (
+				C6459FE51C7EAFBD00763316 /* SYSCFG.TXT */,
+			);
+			name = Documents;
+			sourceTree = "<group>";
+		};
 		C6B1F9111C78395E005CCCBB = {
 			isa = PBXGroup;
 			children = (
@@ -158,7 +160,6 @@
 				C6B1F9211C78395E005CCCBB /* Assets.xcassets */,
 				C6B1F9231C78395E005CCCBB /* Main.storyboard */,
 				C6B1F9261C78395E005CCCBB /* Info.plist */,
-				C6B1F92C1C78397A005CCCBB /* FileManager.swift */,
 				C6B1F9301C783995005CCCBB /* README.txt */,
 				C6A2A99F1C82B8A400A4F495 /* ViewControllers */,
 			);
@@ -274,7 +275,6 @@
 				C6A808491C7FC36D00AC45D2 /* GeneralConfig.swift in Sources */,
 				C6A808001C7ED8B100AC45D2 /* ConfigParamViewController.swift in Sources */,
 				C69B292E1C7EC4AF00681452 /* AppDelegate.swift in Sources */,
-				C69B29431C7EC56100681452 /* ConfigTypes.swift in Sources */,
 				C6A8084B1C7FC66700AC45D2 /* ConfigSection.swift in Sources */,
 				C6A807F81C7ECBAC00AC45D2 /* ConfigTableViewCell.swift in Sources */,
 				C6A807FE1C7ED78A00AC45D2 /* Config.swift in Sources */,
@@ -294,12 +294,10 @@
 				C6A2A97D1C82AE5200A4F495 /* TableViewController.swift in Sources */,
 				C69F991B1C80EBAD0093DEE0 /* VideoConfig.swift in Sources */,
 				C69F99171C80EBAD0093DEE0 /* ConfigItem.swift in Sources */,
-				C6B1F92D1C78397A005CCCBB /* FileManager.swift in Sources */,
 				C69F99191C80EBAD0093DEE0 /* Config.swift in Sources */,
 				C69F991E1C80EBAD0093DEE0 /* CommentsConfig.swift in Sources */,
 				C69F991A1C80EBAD0093DEE0 /* PhotoConfig.swift in Sources */,
 				C6B1F91E1C78395E005CCCBB /* AppDelegate.swift in Sources */,
-				C69F99161C80EBAD0093DEE0 /* ConfigTypes.swift in Sources */,
 				C6A2A9821C82AF2400A4F495 /* TabViewController.swift in Sources */,
 				C69F99181C80EBAD0093DEE0 /* ConfigSection.swift in Sources */,
 			);
