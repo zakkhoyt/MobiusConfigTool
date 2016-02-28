@@ -6,7 +6,11 @@
 //  Copyright © 2016 Zakk Hoyt. All rights reserved.
 //
 
-import UIKit
+#if os(OSX)
+    import Cocoa
+#elseif os(iOS)
+    import UIKit
+#endif
 
 
 //    Date format=[0];set date format,0:YYYY/MM/DD, 1:DD/MM/YYYY, 2:MM/DD/YYYY

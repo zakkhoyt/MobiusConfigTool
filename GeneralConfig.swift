@@ -6,7 +6,11 @@
 //  Copyright © 2016 Zakk Hoyt. All rights reserved.
 //
 
-import UIKit
+#if os(OSX)
+    import Cocoa
+#elseif os(iOS)
+    import UIKit
+#endif
 
 class GeneralConfig: ConfigSection {
     override init() {

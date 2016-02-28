@@ -37,11 +37,13 @@ class ConfigViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    @IBAction func test(sender: AnyObject) {
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+        
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == SegueConfigParam {
             let nc = segue.destinationViewController as? UINavigationController

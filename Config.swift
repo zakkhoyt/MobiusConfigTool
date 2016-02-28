@@ -6,7 +6,11 @@
 //  Copyright © 2016 Zakk Hoyt. All rights reserved.
 //
 
-import UIKit
+#if os(OSX)
+    import Cocoa
+#elseif os(iOS)
+    import UIKit
+#endif
 
 class Config: NSObject {
 
@@ -15,15 +19,28 @@ class Config: NSObject {
     var video2 = VideoConfig()
     var photo = PhotoConfig()
     var system = SystemConfig()
+    var hardware = HardwareConfig()
     
  
     func exportToFile() -> NSURL? {
         var output = ""
-        output += self.general.configFileString() + "\n\n"
-        output += self.video1.configFileString() + "\n\n"
-        output += self.video2.configFileString() + "\n\n"
-        output += self.photo.configFileString() + "\n\n"
-        output += self.system.configFileString() + "\n\n"
+
+        output += self.general.configFileString() + "\n"
+        
+        output += "VIDEO MODE 1\n"
+        output += self.video1.configFileString() + "\n"
+        
+        output += "VIDEO MODE 2\n"
+        output += self.video2.configFileString() + "\n"
+        
+        output += "PHOTO MODE\n"
+        output += self.photo.configFileString() + "\n"
+        
+        output += self.system.configFileString() + "\n"
+        
+        output += self.hardware.configFileString() + "\n"
+        
+        print("syscfg.txt: \n" + output)
         
         if let documentsPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).first {
             var fileURL = NSURL(fileURLWithPath: documentsPath)

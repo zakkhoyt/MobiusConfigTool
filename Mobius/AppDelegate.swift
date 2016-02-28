@@ -8,10 +8,15 @@
 
 import Cocoa
 
+
+
+let AppDelegateConfigDidChange = "AppDelegateConfigDidChange"
+
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
 
+    var config: Config? = nil
 
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         // Insert code here to initialize your application
@@ -21,6 +26,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // Insert code here to tear down your application
     }
 
+    @IBAction func newV3FileAction(sender: AnyObject) {
+        config = Config()
+        NSNotificationCenter.defaultCenter().postNotificationName(AppDelegateConfigDidChange, object: nil)
+    }
 
 }
 
